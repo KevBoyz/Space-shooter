@@ -21,9 +21,9 @@ class SpaceShip(Sprite):
         self.life = 3
 
     def shot(self):
-        self.bullet.add(Bullet(self.rect.x + 105, self.rect.y))
-        self.bullet.add(Bullet(self.rect.x + 45, self.rect.y + 90))
-        self.bullet.add(Bullet(self.rect.x + 160, self.rect.y + 90))
+        self.bullet.add(Bullet(self.rect.x + 70, self.rect.y - 6))
+        self.bullet.add(Bullet(self.rect.x + 32, self.rect.y + 63))
+        self.bullet.add(Bullet(self.rect.x + 107, self.rect.y + 63))
 
     def hit(self):
         global round
