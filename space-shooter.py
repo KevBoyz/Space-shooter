@@ -1,6 +1,7 @@
 import pygame
 from pygame import display
 from pygame import font
+from pygame import mixer
 from pygame.image import load
 from pygame.transform import scale
 from pygame.sprite import Sprite, GroupSingle, Group, groupcollide
@@ -14,6 +15,9 @@ fonte = font.SysFont('comicsans', 50)
 lfont = font.SysFont('comicsans', 300)
 
 
+
+
+
 class SpaceShip(Sprite):
     def __init__(self, bullet):
         super().__init__()
@@ -25,6 +29,8 @@ class SpaceShip(Sprite):
 
     def shot(self):
         if len(nave) > 0:
+            nv_shot = mixer.music.load('Sounds/nave-shot.wav')
+            mixer.music.play(1)
             self.bullet.add(Bullet(self.rect.x + 70, self.rect.y - 6))
             self.bullet.add(Bullet(self.rect.x + 32, self.rect.y + 63))
             self.bullet.add(Bullet(self.rect.x + 107, self.rect.y + 63))
@@ -72,6 +78,8 @@ class OVNI(Sprite):
         self.life = 3
 
     def shot(self):
+        ufo_shot = mixer.music.load('Sounds/ufo-shot.wav')
+        mixer.music.play(1)
         self.laser.add(Laser(self.rect.x + 81, self.rect.y + 15))
         self.laser.add(Laser(self.rect.x + 181, self.rect.y + 15))
 
@@ -132,7 +140,7 @@ window = display.set_mode(
     flags=0
 )
 
-display.set_caption('Nego Dí Rapariga NÃO - Brega version')
+display.set_caption('Space-shooter')
 bg = scale(load('images/space-bg.jpg'), size)
 
 clock = Clock()
@@ -169,6 +177,16 @@ while True:
     nave.draw(window)
     if round % 200 == 0 and len(ufo) <= 10:
         ufo.add(OVNI(laser, randint(0, 1080), randint(0, 200)))
+        if kills >= 20:
+            ufo.add(OVNI(laser, randint(0, 1080), randint(0, 200)))
+        if kills >= 50:
+            ufo.add(OVNI(laser, randint(0, 1080), randint(0, 200)))
+        if kills >= 70:
+            ufo.add(OVNI(laser, randint(0, 1080), randint(0, 200)))
+        if kills >= 90:
+            ufo.add(OVNI(laser, randint(0, 1080), randint(0, 200)))
+        if kills >= 100:
+            ufo.add(OVNI(laser, randint(0, 1080), randint(0, 200)))
     ufo.draw(window)
     bullet.draw(window)
     laser.draw(window)
