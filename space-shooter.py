@@ -1,5 +1,6 @@
 import pygame
 from pygame import display
+from pygame import font
 from pygame.image import load
 from pygame.transform import scale
 from pygame.sprite import Sprite, GroupSingle, Group, groupcollide
@@ -9,6 +10,8 @@ from pygame.time import Clock
 from random import randint
 
 pygame.init()
+fonte = font.SysFont('comicsans', 50)
+lfont = font.SysFont('comicsans', 300)
 
 
 class SpaceShip(Sprite):
@@ -21,15 +24,14 @@ class SpaceShip(Sprite):
         self.life = 3
 
     def shot(self):
-        self.bullet.add(Bullet(self.rect.x + 70, self.rect.y - 6))
-        self.bullet.add(Bullet(self.rect.x + 32, self.rect.y + 63))
-        self.bullet.add(Bullet(self.rect.x + 107, self.rect.y + 63))
+        if len(nave) > 0:
+            self.bullet.add(Bullet(self.rect.x + 70, self.rect.y - 6))
+            self.bullet.add(Bullet(self.rect.x + 32, self.rect.y + 63))
+            self.bullet.add(Bullet(self.rect.x + 107, self.rect.y + 63))
 
     def hit(self):
-        global round
         if self.life <= 0:
             self.kill()
-            pygame.quit()
         else:
             self.life -= 1
 
@@ -42,7 +44,7 @@ class SpaceShip(Sprite):
             if not self.rect.x <= 0:
                 self.rect.x -= self.speed
         elif keys[K_d]:
-            if not self.rect.x >= 1080:
+            if not self.rect.x >= 940:
                 self.rect.x += self.speed
 
 
@@ -75,7 +77,9 @@ class OVNI(Sprite):
 
     def hit(self):
         if self.life <= 0:
+            global kills
             self.kill()
+            kills += 1
         else:
             self.life -= 1
 
@@ -108,6 +112,9 @@ class Laser(Sprite):
             self.kill()
 
 
+
+
+
 bullet = Group()
 laser = Group()
 
@@ -129,7 +136,7 @@ display.set_caption('Nego Dí Rapariga NÃO - Brega version')
 bg = scale(load('images/space-bg.jpg'), size)
 
 clock = Clock()
-deaths = 0
+kills = 0
 round = 0
 while True:
     clock.tick(300)  # FPS
@@ -140,6 +147,25 @@ while True:
             if ev.key == K_SPACE:
                 spship.shot()
     window.blit(bg, (0, 0))  # (200, 50) Position, 4 cartesian quadrant
+    kill_count = fonte.render(
+        f'Kills: {kills}',
+        True,  # No serif
+        (255, 255, 255)
+    )
+    life_show = fonte.render(
+        f'Life: {spship.life}',
+        True,  # No serif
+        (255, 255, 255)
+    )
+    lose = lfont.render(
+        'You Lose',
+        True,  # No serif
+        (255, 255, 255)
+    )
+    if len(nave) == 0:
+        window.blit(lose, (80, 270))
+    window.blit(kill_count, (20, 650))
+    window.blit(life_show, (180, 650))
     nave.draw(window)
     if round % 200 == 0 and len(ufo) <= 10:
         ufo.add(OVNI(laser, randint(0, 1080), randint(0, 200)))
