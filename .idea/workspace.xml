@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2f2bbb7-56d8-4ee5-b877-9ee72ab95d0f" name="Changes" comment="Sprite update">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Space-shooter.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/space-shooter.py" beforeDir="false" afterPath="$PROJECT_DIR$/space-shooter.py" afterDir="false" />
-    </list>
+    <list default="true" id="f2f2bbb7-56d8-4ee5-b877-9ee72ab95d0f" name="Changes" comment="Display" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,7 +75,21 @@
       <option name="project" value="LOCAL" />
       <updated>1629979418042</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Display">
+      <created>1630062520283</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1630062520283</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Display">
+      <created>1630062534184</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1630062534184</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -99,6 +106,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Sprite update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sprite update" />
+    <MESSAGE value="Display" />
+    <option name="LAST_COMMIT_MESSAGE" value="Display" />
   </component>
 </project>
