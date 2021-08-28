@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2f2bbb7-56d8-4ee5-b877-9ee72ab95d0f" name="Changes" comment="Display">
+    <list default="true" id="f2f2bbb7-56d8-4ee5-b877-9ee72ab95d0f" name="Changes" comment="Stable game">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/space-shooter.py" beforeDir="false" afterPath="$PROJECT_DIR$/space-shooter.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630062534184</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Stable game">
+      <created>1630066613305</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1630066613305</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,6 +126,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Sprite update" />
     <MESSAGE value="Display" />
-    <option name="LAST_COMMIT_MESSAGE" value="Display" />
+    <MESSAGE value="Stable game" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stable game" />
   </component>
 </project>

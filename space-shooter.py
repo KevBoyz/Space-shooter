@@ -1,21 +1,15 @@
-import pygame
-from pygame import display
-from pygame import font
-from pygame import mixer
+from pygame import display, font, mixer, event
+from pygame.sprite import Sprite, GroupSingle, Group, groupcollide
+from pygame.locals import QUIT, KEYDOWN, K_SPACE, K_a, K_d
 from pygame.image import load
 from pygame.transform import scale
-from pygame.sprite import Sprite, GroupSingle, Group, groupcollide
-from pygame import event
-from pygame.locals import QUIT, KEYDOWN, K_SPACE, K_a, K_d
 from pygame.time import Clock
 from random import randint
+import pygame
 
 pygame.init()
 fonte = font.SysFont('comicsans', 50)
 lfont = font.SysFont('comicsans', 300)
-
-
-
 
 
 class SpaceShip(Sprite):
@@ -120,9 +114,6 @@ class Laser(Sprite):
             self.kill()
 
 
-
-
-
 bullet = Group()
 laser = Group()
 
@@ -147,7 +138,7 @@ clock = Clock()
 kills = 0
 round = 0
 while True:
-    clock.tick(300)  # FPS
+    clock.tick(30)  # FPS
     for ev in event.get():  # Close event
         if ev.type == QUIT:
             pygame.quit()
