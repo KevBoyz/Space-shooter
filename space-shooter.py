@@ -138,7 +138,7 @@ clock = Clock()
 kills = 0
 round = 0
 while True:
-    clock.tick(30)  # FPS
+    clock.tick(300)  # FPS
     for ev in event.get():  # Close event
         if ev.type == QUIT:
             pygame.quit()
