@@ -8,8 +8,8 @@ from random import randint
 import pygame
 
 pygame.init()
-fonte = font.SysFont('comicsans', 50)
-lfont = font.SysFont('comicsans', 300)
+fonte = font.SysFont('__default', 50)
+lfont = font.SysFont('__default', 300)
 
 
 class SpaceShip(Sprite):
