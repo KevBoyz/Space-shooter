@@ -17,9 +17,9 @@ class SpaceShip(Sprite):
         super().__init__()
         self.image = load('Sprites/spaceship.png')  # Sprite
         self.rect = self.image.get_rect(center=(540, 550))  # Hit box
-        self.speed = 3.5
+        self.speed = 5
         self.bullet = bullet
-        self.life = 3
+        self.life = 6
 
     def shot(self):
         if len(nave) > 0:
@@ -53,7 +53,7 @@ class Bullet(Sprite):
         super().__init__()
         self.image = load('Sprites/bullet.png')
         self.rect = self.image.get_rect(center=(x, y))
-        self.speed = 4
+        self.speed = 5
 
     def update(self):
         self.rect.y -= self.speed
@@ -66,10 +66,10 @@ class OVNI(Sprite):
         super().__init__()
         self.image = load('Sprites/ovni.png')
         self.rect = self.image.get_rect(center=(x, y))
-        self.speed = 4
+        self.speed = 7
         self.direction = 0
         self.laser = laser
-        self.life = 3
+        self.life = 5
 
     def shot(self):
         ufo_shot = mixer.music.load('Sounds/ufo-shot.wav')
@@ -106,7 +106,7 @@ class Laser(Sprite):
         super(Laser, self).__init__()
         self.image = load('Sprites/ufo-laser.png')
         self.rect = self.image.get_rect(center=(x, y))
-        self.speed = 3
+        self.speed = 4
 
     def update(self):
         self.rect.y += self.speed
