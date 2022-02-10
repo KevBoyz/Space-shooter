@@ -17,7 +17,7 @@ class SpaceShip(Sprite):
         super().__init__()
         self.image = load('Sprites/spaceship.png')  # Sprite
         self.rect = self.image.get_rect(center=(540, 550))  # Hit box
-        self.speed = 5
+        self.speed = 5.5
         self.bullet = bullet
         self.life = 6
 
@@ -25,9 +25,9 @@ class SpaceShip(Sprite):
         if len(nave) > 0:
             nv_shot = mixer.music.load('Sounds/nave-shot.wav')
             mixer.music.play(1)
-            self.bullet.add(Bullet(self.rect.x + 70, self.rect.y - 6))
-            self.bullet.add(Bullet(self.rect.x + 32, self.rect.y + 63))
-            self.bullet.add(Bullet(self.rect.x + 107, self.rect.y + 63))
+            self.bullet.add(Bullet(self.rect.x + 70 + randint(-10, 10), self.rect.y - 6 - randint(0, 2) * 35))
+            self.bullet.add(Bullet(self.rect.x + 32 + randint(-10, 10), self.rect.y + 63 - randint(0, 2) * 35))
+            self.bullet.add(Bullet(self.rect.x + 107 + randint(-10, 10), self.rect.y + 63 - randint(0, 2) * 35))
 
     def hit(self):
         if self.life <= 0:
@@ -66,16 +66,16 @@ class OVNI(Sprite):
         super().__init__()
         self.image = load('Sprites/ovni.png')
         self.rect = self.image.get_rect(center=(x, y))
-        self.speed = 7
+        self.speed = 8
         self.direction = 0
         self.laser = laser
-        self.life = 5
+        self.life = 10
 
     def shot(self):
         ufo_shot = mixer.music.load('Sounds/ufo-shot.wav')
         mixer.music.play(1)
-        self.laser.add(Laser(self.rect.x + 81, self.rect.y + 15))
-        self.laser.add(Laser(self.rect.x + 181, self.rect.y + 15))
+        self.laser.add(Laser(self.rect.x + 81 + randint(-10, 10), self.rect.y + 15))
+        self.laser.add(Laser(self.rect.x + 181 + randint(-10, 10), self.rect.y + 15))
 
     def hit(self):
         if self.life <= 0:
@@ -116,12 +116,9 @@ class Laser(Sprite):
 
 bullet = Group()
 laser = Group()
-
 spship = SpaceShip(bullet)
 nave = GroupSingle(spship)
-
 ufo = Group()
-
 size = (1080, 700)
 window = display.set_mode(
     display=0,  # display = monitor
@@ -130,10 +127,8 @@ window = display.set_mode(
     vsync=0,
     flags=0
 )
-
 display.set_caption('Space-shooter')
 bg = scale(load('images/space-bg.jpg'), size)
-
 clock = Clock()
 kills = 0
 round = 0
@@ -143,7 +138,7 @@ while True:
         if ev.type == QUIT:
             pygame.quit()
         if ev.type == KEYDOWN:
-            if ev.key == K_SPACE:
+            if ev.key == 111 or ev.key == 107 or ev.key == K_SPACE:
                 spship.shot()
     window.blit(bg, (0, 0))  # (200, 50) Position, 4 cartesian quadrant
     kill_count = fonte.render(
